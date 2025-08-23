@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Django Debug",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/trendbazar/manage.py",
+            "args": [
+                "runserver",
+                "--noreload"
+            ],
+            "django": true,
+            "justMyCode": false,
+            "python": "${workspaceFolder}/eco/Scripts/python.exe",
+            "cwd": "${workspaceFolder}/trendbazar",
+            "env": {
+                "DJANGO_SETTINGS_MODULE": "trendbazar.settings"
+            },
+            "console": "integratedTerminal"
+        }
+    ]
+}

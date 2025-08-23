@@ -1,0 +1,490 @@
+{%extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="warranty-page">
+    <div class="warranty-hero">
+        <div class="hero-content">
+            <h1><i class="fas fa-shield-alt"></i> Product Warranty</h1>
+            <p>Your peace of mind is our priority</p>
+        </div>
+    </div>
+
+    <div class="warranty-content">
+        <div class="warranty-main">
+            <div class="warranty-card">
+                <div class="warranty-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h2>6 Month Warranty</h2>
+                <p class="warranty-subtitle">On All Accessories</p>
+                <div class="warranty-details">
+                    <p>We provide a <strong>6-month warranty</strong> on all accessories purchased from TrendBazar. This warranty covers manufacturing defects and ensures your products work as intended.</p>
+                </div>
+            </div>
+
+            <div class="warranty-info">
+                <div class="info-section">
+                    <h3><i class="fas fa-check-circle"></i> What's Covered</h3>
+                    <ul class="warranty-list">
+                        <li><i class="fas fa-checkmark"></i> Manufacturing defects</li>
+                        <li><i class="fas fa-checkmark"></i> Hardware malfunctions</li>
+                        <li><i class="fas fa-checkmark"></i> Performance issues under normal use</li>
+                        <li><i class="fas fa-checkmark"></i> Quality-related problems</li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h3><i class="fas fa-times-circle"></i> What's Not Covered</h3>
+                    <ul class="warranty-list excluded">
+                        <li><i class="fas fa-times"></i> Physical damage from misuse</li>
+                        <li><i class="fas fa-times"></i> Water damage</li>
+                        <li><i class="fas fa-times"></i> Normal wear and tear</li>
+                        <li><i class="fas fa-times"></i> Damage from unauthorized repairs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warranty-process">
+                <h3><i class="fas fa-cogs"></i> How to Claim Warranty</h3>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Contact Us</h4>
+                            <p>Reach out to our support team with your order details</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Product Assessment</h4>
+                            <p>We'll evaluate your product and warranty claim</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Resolution</h4>
+                            <p>Repair, replacement, or refund based on assessment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warranty-requirements">
+                <h3><i class="fas fa-file-alt"></i> Required for Warranty Claims</h3>
+                <div class="requirements-grid">
+                    <div class="requirement-item">
+                        <i class="fas fa-receipt"></i>
+                        <h4>Original Receipt</h4>
+                        <p>Proof of purchase from TrendBazar</p>
+                    </div>
+                    <div class="requirement-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Purchase Date</h4>
+                        <p>Within 6 months of purchase</p>
+                    </div>
+                    <div class="requirement-item">
+                        <i class="fas fa-box"></i>
+                        <h4>Product Condition</h4>
+                        <p>No signs of misuse or damage</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warranty-contact">
+                <h3><i class="fas fa-headset"></i> Need Help?</h3>
+                <p>For warranty claims or questions, contact our support team:</p>
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>warranty@trendbazar.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>1-800-TREND-BAZAR</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon-Fri, 9 AM - 6 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.warranty-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.warranty-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.warranty-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.warranty-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.warranty-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.warranty-content {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.warranty-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.warranty-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+    color: white;
+}
+
+.warranty-card h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.warranty-subtitle {
+    font-size: 1.2rem;
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.warranty-details {
+    background: #f8f9ff;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.warranty-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.info-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.info-section h3 {
+    color: #333;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.warranty-list {
+    list-style: none;
+    padding: 0;
+}
+
+.warranty-list li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.warranty-list li:last-child {
+    border-bottom: none;
+}
+
+.warranty-list li i {
+    color: #28a745;
+    font-size: 1.1rem;
+}
+
+.warranty-list.excluded li i {
+    color: #dc3545;
+}
+
+.warranty-process {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.warranty-process h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.process-steps {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.step::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: -15px;
+    width: 30px;
+    height: 2px;
+    background: #667eea;
+}
+
+.step:last-child::after {
+    display: none;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 15px;
+}
+
+.step-content h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.step-content p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.warranty-requirements {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.warranty-requirements h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.requirement-item {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.requirement-item:hover {
+    border-color: #667eea;
+    transform: translateY(-5px);
+}
+
+.requirement-item i {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.requirement-item h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.requirement-item p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.warranty-contact {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.warranty-contact h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.warranty-contact p {
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.1);
+    padding: 15px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.contact-item i {
+    font-size: 1.2rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .warranty-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .warranty-card {
+        padding: 30px 20px;
+    }
+    
+    .warranty-card h2 {
+        font-size: 2rem;
+    }
+    
+    .warranty-info {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .process-steps {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .step::after {
+        display: none;
+    }
+    
+    .requirements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-methods {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .warranty-content {
+        padding: 40px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .warranty-hero {
+        padding: 60px 0 40px;
+    }
+    
+    .warranty-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .warranty-card {
+        padding: 25px 15px;
+    }
+    
+    .info-section,
+    .warranty-process,
+    .warranty-requirements,
+    .warranty-contact {
+        padding: 25px 20px;
+    }
+}
+</style>
+
+{% endblock %}

@@ -1,0 +1,611 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Help Page Content -->
+<div class="help-page">
+    <!-- Help Hero Section -->
+    <section class="help-hero">
+        <div class="hero-content">
+            <h1><i class="fas fa-question-circle"></i> How Can We Help You?</h1>
+            <p>Find answers to common questions, track your orders, or get in touch with our support team</p>
+            
+            <!-- Help Search -->
+            <div class="help-search">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for help topics, orders, products..." id="helpSearch">
+                    <button type="button" class="search-btn">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+     
+    <section class="quick-actions">
+        <div class="actions-container">
+            <h2>Quick Actions</h2>
+            <div class="actions-grid">
+                <div class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Track Your Order</h3>
+                    <p>Enter your order number to see real-time tracking information</p>
+                    <button class="action-btn">Track Order</button>
+                </div>
+                
+                <div class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h3>Return/Exchange</h3>
+                    <p>Start a return or exchange for your recent purchases</p>
+                    <button class="action-btn">Start Return</button>
+                </div>
+                
+                <div class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our customer service team for instant help</p>
+                    <button class="action-btn">Start Chat</button>
+                </div>
+                
+                <div class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Account Help</h3>
+                    <p>Manage your account, passwords, and personal information</p>
+                    <button class="action-btn">Account Settings</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2><i class="fas fa-question"></i> Frequently Asked Questions</h2>
+            
+            <div class="faq-categories">
+                <div class="faq-category">
+                    <h3><i class="fas fa-shopping-cart"></i> Orders & Shopping</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>How do I place an order?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>To place an order, simply browse our products, add items to your cart, and proceed to checkout. You'll need to provide shipping information and payment details to complete your purchase.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Can I modify or cancel my order?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can modify or cancel your order within 1 hour of placing it. After that, the order enters processing and cannot be changed. Contact our customer service team for assistance.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>What payment methods do you accept?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, Apple Pay, Google Pay, and our store gift cards. All transactions are secure and encrypted.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-category">
+                    <h3><i class="fas fa-shipping-fast"></i> Shipping & Delivery</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>How long does shipping take?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Standard shipping takes 3-7 business days. Express shipping takes 1-2 business days. International shipping takes 7-14 business days depending on your location.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Do you offer free shipping?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! We offer free standard shipping on all orders over $50. For orders under $50, shipping costs $5.99.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>How can I track my order?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Once your order ships, you'll receive a tracking number via email. You can also track your order by logging into your account or using our order tracking tool above.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-category">
+                    <h3><i class="fas fa-exchange-alt"></i> Returns & Refunds</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>What is your return policy?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We offer a 30-day return policy for most items. Items must be in original condition with tags attached. Some items like personalized products may not be returnable.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>How do I return an item?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Start a return through your account or contact customer service. We'll provide a prepaid return label. Package your item securely and drop it off at any authorized location.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>When will I receive my refund?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Refunds are processed within 24 hours of receiving your return. The money will appear in your account within 3-5 business days depending on your payment method.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-category">
+                    <h3><i class="fas fa-user-cog"></i> Account & Technical</h3>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>How do I create an account?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Click the "Login" button in the top right corner, then select "Create Account". You'll need to provide an email address and create a password. You can also sign up during checkout.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>I forgot my password. What should I do?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Click "Forgot Password" on the login page. Enter your email address and we'll send you a password reset link. Check your spam folder if you don't see it in your inbox.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Why is the website not working properly?</span>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Try clearing your browser cache and cookies, or try using a different browser. Make sure you have a stable internet connection. If problems persist, contact our technical support team.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Options -->
+    <section class="contact-options">
+        <div class="contact-container">
+            <h2><i class="fas fa-headset"></i> Still Need Help?</h2>
+            <p>Our customer service team is here to assist you with any questions or concerns</p>
+            
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our support team</p>
+                    <span class="availability">Available 24/7</span>
+                    <button class="contact-btn primary">Start Chat</button>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone Support</h3>
+                    <p>Call us for immediate assistance</p>
+                    <span class="availability">Mon-Fri 9AM-6PM EST</span>
+                    <button class="contact-btn secondary">Call Now</button>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Support</h3>
+                    <p>Send us a detailed message</p>
+                    <span class="availability">Response within 24 hours</span>
+                    <button class="contact-btn secondary">Send Email</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Tracking Modal -->
+    <div id="trackingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-truck"></i> Track Your Order</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="tracking-form">
+                    <label for="orderNumber">Order Number:</label>
+                    <input type="text" id="orderNumber" placeholder="Enter your order number">
+                    <label for="emailAddress">Email Address:</label>
+                    <input type="email" id="emailAddress" placeholder="Enter your email address">
+                    <button class="track-btn">Track Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Help Page JavaScript -->
+<script>
+// FAQ Toggle Functionality
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
+        const icon = question.querySelector('i');
+        
+        faqItem.classList.toggle('active');
+        
+        if (faqItem.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            icon.className = 'fas fa-minus';
+        } else {
+            answer.style.maxHeight = '0';
+            icon.className = 'fas fa-plus';
+        }
+    });
+});
+
+// Order Tracking Modal
+const trackOrderBtn = document.querySelector('.action-card .action-btn');
+const trackingModal = document.getElementById('trackingModal');
+const closeModal = document.querySelector('.close-modal');
+
+if (trackOrderBtn) {
+    trackOrderBtn.addEventListener('click', () => {
+        trackingModal.style.display = 'block';
+    });
+}
+
+if (closeModal) {
+    closeModal.addEventListener('click', () => {
+        trackingModal.style.display = 'none';
+    });
+}
+
+// Close modal when clicking outside
+window.addEventListener('click', (e) => {
+    if (e.target === trackingModal) {
+        trackingModal.style.display = 'none';
+    }
+});
+
+// Enhanced Help Search Functionality
+const helpSearch = document.getElementById('helpSearch');
+const searchBtn = document.querySelector('.search-btn');
+
+function performSearch() {
+    const searchTerm = helpSearch.value.toLowerCase().trim();
+    const faqItems = document.querySelectorAll('.faq-item');
+    const actionCards = document.querySelectorAll('.action-card');
+    const faqCategories = document.querySelectorAll('.faq-category');
+    let hasResults = false;
+
+    // Clear previous highlights
+    clearHighlights();
+
+    // If search is empty, show all items
+    if (searchTerm === '') {
+        showAllItems();
+        removeNoResultsMessage();
+        return;
+    }
+
+    // Search through FAQ items
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+        const category = item.closest('.faq-category').querySelector('h3').textContent.toLowerCase();
+
+        if (question.includes(searchTerm) || answer.includes(searchTerm) || category.includes(searchTerm)) {
+            item.style.display = 'block';
+            item.classList.add('search-highlight');
+            item.closest('.faq-category').style.display = 'block';
+            hasResults = true;
+
+            // Highlight matching text
+            highlightText(item.querySelector('.faq-question span'), searchTerm);
+        } else {
+            item.style.display = 'none';
+        }
+    });
+
+    // Search through action cards
+    actionCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+            card.style.display = 'block';
+            card.classList.add('search-highlight');
+            hasResults = true;
+            highlightText(card.querySelector('h3'), searchTerm);
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    // Hide empty categories
+    faqCategories.forEach(category => {
+        const visibleItems = category.querySelectorAll('.faq-item[style*="block"]');
+        if (visibleItems.length === 0) {
+            category.style.display = 'none';
+        }
+    });
+
+    // Show no results message if needed
+    if (!hasResults) {
+        showNoResultsMessage(searchTerm);
+    } else {
+        removeNoResultsMessage();
+    }
+}
+
+// Highlight matching text
+function highlightText(element, searchTerm) {
+    const originalText = element.textContent;
+    const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const highlightedText = originalText.replace(regex, '<mark class="search-match">$1</mark>');
+    element.innerHTML = highlightedText;
+}
+
+// Clear all highlights
+function clearHighlights() {
+    document.querySelectorAll('.search-highlight').forEach(item => {
+        item.classList.remove('search-highlight');
+    });
+
+    document.querySelectorAll('.search-match').forEach(mark => {
+        mark.outerHTML = mark.innerHTML;
+    });
+}
+
+// Show all items (reset search)
+function showAllItems() {
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.style.display = 'block';
+    });
+
+    document.querySelectorAll('.action-card').forEach(card => {
+        card.style.display = 'block';
+    });
+
+    document.querySelectorAll('.faq-category').forEach(category => {
+        category.style.display = 'block';
+    });
+}
+
+// Show no results message
+function showNoResultsMessage(searchTerm) {
+    removeNoResultsMessage(); // Remove existing message first
+
+    const noResultsDiv = document.createElement('div');
+    noResultsDiv.className = 'no-results-message';
+    noResultsDiv.innerHTML = `
+        <div class="no-results-content">
+            <i class="fas fa-search"></i>
+            <h3>No results found for "${searchTerm}"</h3>
+            <p>Try searching with different keywords or popular topics below:</p>
+            <div class="search-suggestions">
+                <button class="suggestion-btn" onclick="searchFor('order')">Orders</button>
+                <button class="suggestion-btn" onclick="searchFor('shipping')">Shipping</button>
+                <button class="suggestion-btn" onclick="searchFor('return')">Returns</button>
+                <button class="suggestion-btn" onclick="searchFor('payment')">Payment</button>
+                <button class="suggestion-btn" onclick="searchFor('account')">Account</button>
+                <button class="suggestion-btn" onclick="clearSearch()">Show All</button>
+            </div>
+        </div>
+    `;
+
+    // Insert after the help search section
+    const helpSearchSection = document.querySelector('.help-search');
+    helpSearchSection.insertAdjacentElement('afterend', noResultsDiv);
+}
+
+// Remove no results message
+function removeNoResultsMessage() {
+    const existingMsg = document.querySelector('.no-results-message');
+    if (existingMsg) {
+        existingMsg.remove();
+    }
+}
+
+// Helper functions for suggestions
+function searchFor(term) {
+    helpSearch.value = term;
+    performSearch();
+    helpSearch.focus();
+}
+
+function clearSearch() {
+    helpSearch.value = '';
+    performSearch();
+}
+
+// Event listeners
+if (searchBtn) {
+    searchBtn.addEventListener('click', performSearch);
+}
+
+if (helpSearch) {
+    // Search on Enter key
+    helpSearch.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+        if (e.key === 'Escape') {
+            clearSearch();
+        }
+    });
+
+    // Real-time search with delay
+    let searchTimeout;
+    helpSearch.addEventListener('input', () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(performSearch, 300);
+    });
+}
+</script>
+
+<!-- Enhanced Search Styles -->
+<style>
+/* Search highlighting */
+.search-highlight {
+    background: rgba(0, 123, 255, 0.1) !important;
+    border-left: 3px solid #007bff !important;
+    transition: all 0.3s ease;
+}
+
+.search-match {
+    background: #ffeb3b;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* No results message */
+.no-results-message {
+    background: white;
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    max-width: 600px;
+    border: 1px solid #e9ecef;
+}
+
+.no-results-content i {
+    font-size: 3rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+.no-results-content h3 {
+    color: #495057;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.no-results-content p {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+.search-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.suggestion-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.suggestion-btn:hover {
+    background: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.suggestion-btn:last-child {
+    background: #6c757d;
+}
+
+.suggestion-btn:last-child:hover {
+    background: #545b62;
+}
+
+/* Enhanced search box */
+.search-box input:focus {
+    outline: none;
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1) !important;
+}
+
+.search-btn:hover {
+    background: #0056b3 !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .search-suggestions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .suggestion-btn {
+        width: 200px;
+        margin: 0.25rem 0;
+    }
+    
+    .no-results-message {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}
+</style>
+
+{% endblock %}

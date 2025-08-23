@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Returns & Refunds -->
+                <section id="returns" class="terms-section">
+                    <h2><i class="fas fa-undo"></i> Returns & Refunds Policy</h2>
+                    <div class="section-content">
+                        <h3>Return Window</h3>
+                        <p>
+                            You have <strong>30 days</strong> from the delivery date to return most items. 
+                            Some categories may have different return periods.
+                        </p>
+
+                        <h3>Return Conditions</h3>
+                        <div class="condition-grid">
+                            <div class="condition-item valid">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>Eligible Returns</h4>
+                                <ul>
+                                    <li>Items in original condition</li>
+                                    <li>Original packaging included</li>
+                                    <li>All tags and labels attached</li>
+                                    <li>Receipt or order confirmation</li>
+                                </ul>
+                            </div>
+                            <div class="condition-item invalid">
+                                <i class="fas fa-times-circle"></i>
+                                <h4>Non-Returnable Items</h4>
+                                <ul>
+                                    <li>Personalized or custom items</li>
+                                    <li>Perishable goods</li>
+                                    <li>Digital downloads</li>
+                                    <li>Items damaged by misuse</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>Refund Process</h3>
+                        <p>
+                            Refunds are processed within 5-10 business days after we receive and inspect your return. 
+                            Original shipping costs are non-refundable unless the return is due to our error.
+                        </p>
+                        <h3>For more information please visit our services page or please contact us!</h3>
+                    </div>
+                </section>
+{% endblock %}

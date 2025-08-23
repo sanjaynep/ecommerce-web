@@ -1,0 +1,370 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Report/Contact Form Page -->
+<div class="contact-page">
+    <div class="contact-container">
+        <!-- Page Header -->
+        <div class="contact-header">
+            <h1><i class="fas fa-bug"></i> Report an Issue</h1>
+            <p class="contact-intro">
+                Found a problem or have feedback? Help us improve by reporting issues or sending suggestions.
+                We value your input and will address your concerns promptly.
+            </p>
+        </div>
+
+        <!-- success and error messages -->
+         {% if messages %}
+            <div class="form-messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        <i class="fas {% if message.tags == 'success' %}fa-check-circle{% else %}fa-exclamation-triangle{% endif %}"></i>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Contact Form Section -->
+        <div class="contact-form-section">
+            <div class="form-header">
+                <h2><i class="fas fa-paper-plane"></i> Send us a Message</h2>
+                <p>Fill out the form below and we'll respond within 24 hours</p>
+            </div>
+
+            <form class="contact-form" id="contactForm" method="post"  action="{% url 'report' %}"  >
+                {% csrf_token %}
+                <!-- Name Fields Row -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">
+                            <i class="fas fa-user"></i>
+                            First Name *
+                        </label>
+                        <input 
+                            type="text" 
+                            id="firstName" 
+                            name="firstName" 
+                            required
+                            placeholder="Enter your first name"
+                            value="{{form_data.first_name|default:''}}"
+                        >
+                        <span class="error-message" id="firstNameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">
+                            <i class="fas fa-user"></i>
+                            Last Name *
+                        </label>
+                        <input 
+                            type="text" 
+                            id="lastName" 
+                            name="lastName" 
+                            required
+                            placeholder="Enter your last name"
+                            value="{{form_data.last_name|default:''}}"
+                        >
+                        <span class="error-message" id="lastNameError"></span>
+                    </div>
+                </div>
+
+                <!-- Contact Information Row -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i>
+                            Email Address *
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required
+                            placeholder="Enter your email address"
+                            value="{{form_data.email|default:''}}"
+                        >
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">
+                            <i class="fas fa-phone"></i>
+                            Phone Number
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            placeholder="Enter your phone number"
+                        >
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+                </div>
+
+                <!-- Subject Selection -->
+                <div class="form-group">
+                    <label for="subject">
+                        <i class="fas fa-tag"></i>
+                        Subject *
+                    </label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a subject...</option>
+                        <option value="bug-report">Bug Report</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="order">Order Support</option>
+                        <option value="shipping">Shipping & Delivery</option>
+                        <option value="returns">Returns & Refunds</option>
+                        <option value="technical">Technical Support</option>
+                        <option value="billing">Billing Questions</option>
+                        <option value="partnership">Business Partnership</option>
+                        <option value="complaint">Complaint</option>
+                        <option value="suggestion">Suggestion</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span class="error-message" id="subjectError"></span>
+                </div>
+
+                <!-- Optional Address Field -->
+                <div class="form-group">
+                    <label for="address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Address
+                    </label>
+                    <input 
+                        type="text" 
+                        id="address" 
+                        name="address" 
+                        placeholder="Enter your address (optional)"
+                    >
+                </div>
+
+                <!-- Message Field -->
+                <div class="form-group">
+                    <label for="message">
+                        <i class="fas fa-comment"></i>
+                        Message *
+                    </label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        rows="6" 
+                        required
+                        placeholder="Please describe your inquiry in detail. The more information you provide, the better we can assist you."
+                    ></textarea>
+                    <span class="error-message" id="messageError"></span>
+                    <div class="character-count">
+                        <span id="charCount">0</span>/1000 characters
+                    </div>
+                </div>
+
+                <!-- Newsletter Subscription -->
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">
+                            Subscribe to our newsletter for updates and special offers
+                        </span>
+                    </label>
+                </div>
+
+                <!-- Privacy Agreement -->
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">
+                            I agree to the <a href="{% url 'privacy' %}" target="_blank">Privacy Policy</a> and <a href="{% url 'terms_of_use' %}" target="_blank">Terms of Use</a> *
+                        </span>
+                    </label>
+                    <span class="error-message" id="privacyError"></span>
+                </div>
+
+                <!-- Form Action Buttons -->
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn big-stylish-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Send Message</span>
+                    </button>
+                    <button type="reset" class="reset-btn big-stylish-btn">
+                        <i class="fas fa-undo"></i>
+                        <span>Reset Form</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Form JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get form elements
+    const form = document.getElementById('contactForm');
+    const messageTextarea = document.getElementById('message');
+    const charCount = document.getElementById('charCount');
+
+    // Character counter for message textarea
+    messageTextarea.addEventListener('input', function() {
+        const length = this.value.length;
+        charCount.textContent = length;
+        
+        if (length > 1000) {
+            charCount.style.color = '#f44336';
+            this.value = this.value.substring(0, 1000);
+            charCount.textContent = '1000';
+        } else {
+            charCount.style.color = length > 800 ? '#ff9800' : '#666';
+        }
+    });
+
+    // Validation functions
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function validatePhone(phone) {
+        if (!phone) return true; // Phone is optional
+        const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
+        return phoneRegex.test(phone);
+    }
+
+    function showError(fieldId, message) {
+        const errorElement = document.getElementById(fieldId + 'Error');
+        const field = document.getElementById(fieldId);
+        
+        errorElement.textContent = message;
+        field.classList.add('error');
+        
+        // Remove error on input
+        field.addEventListener('input', function() {
+            errorElement.textContent = '';
+            field.classList.remove('error');
+        }, { once: true });
+    }
+
+    function validateForm() {
+        let isValid = true;
+        
+        // Clear previous errors
+        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+        document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+
+        // Validate required fields
+        const firstName = document.getElementById('firstName').value.trim();
+        if (!firstName || firstName.length < 2) {
+            showError('firstName', !firstName ? 'First name is required' : 'First name must be at least 2 characters');
+            isValid = false;
+        }
+
+        const lastName = document.getElementById('lastName').value.trim();
+        if (!lastName || lastName.length < 2) {
+            showError('lastName', !lastName ? 'Last name is required' : 'Last name must be at least 2 characters');
+            isValid = false;
+        }
+
+        const email = document.getElementById('email').value.trim();
+        if (!email) {
+            showError('email', 'Email address is required');
+            isValid = false;
+        } else if (!validateEmail(email)) {
+            showError('email', 'Please enter a valid email address');
+            isValid = false;
+        }
+
+        const phone = document.getElementById('phone').value.trim();
+        if (phone && !validatePhone(phone)) {
+            showError('phone', 'Please enter a valid phone number');
+            isValid = false;
+        }
+
+        const subject = document.getElementById('subject').value;
+        if (!subject) {
+            showError('subject', 'Please select a subject');
+            isValid = false;
+        }
+
+        const message = document.getElementById('message').value.trim();
+        if (!message) {
+            showError('message', 'Message is required');
+            isValid = false;
+        } else if (message.length < 10) {
+            showError('message', 'Message must be at least 10 characters');
+            isValid = false;
+        }
+
+        const privacy = document.getElementById('privacy').checked;
+        if (!privacy) {
+            showError('privacy', 'You must agree to the Privacy Policy and Terms of Use');
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    // Form submission handler
+    form.addEventListener('submit', function(e) {        
+        if (validateForm()) {
+            // Show loading state
+            const submitBtn = form.querySelector('.submit-btn');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
+            submitBtn.disabled = true;
+            
+            // Allow the form to submit naturally to Django
+            return true;
+        } else {
+            // Prevent submission if validation fails
+            e.preventDefault();
+            
+            // Scroll to first error
+            const firstError = document.querySelector('.error');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    });
+
+    // Form reset handler
+    form.addEventListener('reset', function() {
+        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+        document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+        charCount.textContent = '0';
+        charCount.style.color = '#666';
+    });
+
+    // Real-time validation
+    document.getElementById('email').addEventListener('blur', function() {
+        const email = this.value.trim();
+        if (email && !validateEmail(email)) {
+            showError('email', 'Please enter a valid email address');
+        }
+    });
+
+    document.getElementById('phone').addEventListener('blur', function() {
+        const phone = this.value.trim();
+        if (phone && !validatePhone(phone)) {
+            showError('phone', 'Please enter a valid phone number');
+        }
+    });
+
+    // Auto-hide alert messages after 5 seconds
+    document.addEventListener('DOMContentLoaded', function() {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(function(alert) {
+            setTimeout(function() {
+                alert.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                alert.style.opacity = '0';
+                alert.style.transform = 'translateY(-10px)';
+                setTimeout(function() {
+                    if (alert.parentNode) {
+                        alert.parentNode.removeChild(alert);
+                    }
+                }, 500);
+            }, 5000);
+        });
+    });
+});
+</script>
+
+{% endblock %}

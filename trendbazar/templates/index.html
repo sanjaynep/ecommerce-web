@@ -1,0 +1,149 @@
+{%extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Promotional Section -->
+<div class="promotional-section">
+    <div class="text-content">
+        <h1 class="sale-text">SALE</h1>
+        <h2 class="discount-text">50%</h2>
+        <h3 class="off-text">OFF</h3>
+        <p class="promo-description">Don't miss out on our biggest sale of the year!</p>
+        <p class="promo-additional">on for certain products</p>
+    </div>
+    <div class="images-container">
+        <div class="image-content">
+            <img src="{% static 'watch.webp' %}" alt="Watch Sale" class="dynamic-image circular-dynamic-image">
+        </div>
+        <div class="image-content">
+            <img src="{% static 'ps5.webp' %}" alt="Product 2" class="dynamic-image circular-dynamic-image">
+        </div>
+        <div class="image-content">
+            <img src="{% static 'airpod.webp' %}" alt="Product 3" class="dynamic-image circular-dynamic-image">
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Product Showcase Section -->
+<section class="product-showcase">
+    <div class="showcase-header">
+        <h2>Featured Products</h2>
+        <p>Discover our best-selling items</p>
+    </div>
+    <!-- Search and Navigation Section -->
+    <div class="search-container">
+        <form method="get" action="" id="searchForm">
+            <input type="text" name="q" placeholder="Search products..." value="{{ query }}" id="searchInput">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+    <div class="products-grid" id="productsGrid">
+        {% for product in products %}
+        <div class="product-card">
+            <div class="product-image">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.title }}" class="dynamic-image">
+                {% else %}
+                <div
+                    style="background: #f0f0f0; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    <span>No Image</span>
+                </div>
+                {% endif %}
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">{{ product.title }}</h3>
+                <p class="product-description">{{ product.description|truncatewords:15 }}</p>
+                <div class="product-price">${{ product.price }}</div>
+                <button class="add-to-cart-btn" data-product-id="{{ product.id }}"
+                    data-product-name="{{ product.title }}" data-product-price="{{ product.price }}"
+                    data-product-image="{% if product.image %}{{ product.image.url }}{% endif %}">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+        {% empty %}
+        <div class="no-products">
+            <p>No products available at the moment.</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const productsGrid = document.getElementById('productsGrid');
+    
+    // Handle form submission
+    searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        performSearch(query);
+    });
+    
+    // Handle real-time search (search as user types)
+    let searchTimeout;
+    searchInput.addEventListener('input', function(e) {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            const query = e.target.value.trim();
+            performSearch(query);
+        }, 300); // Reduced delay for better responsiveness
+    });
+    
+    function performSearch(query) {
+        // Show loading state
+        productsGrid.style.opacity = '0.6';
+        productsGrid.style.pointerEvents = 'none';
+        
+        const url = query ? `/?q=${encodeURIComponent(query)}` : '/';
+        
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(html => {
+            // For AJAX requests, we get the products_partial.html content directly
+            // Just replace the grid content with the response
+            productsGrid.innerHTML = html.trim();
+        })
+        .catch(error => {
+            console.error('Search error:', error);
+            productsGrid.innerHTML = `
+                <div class="no-products">
+                    <p>Error loading products. Please try again.</p>
+                </div>
+            `;
+        })
+        .finally(() => {
+            // Remove loading state
+            productsGrid.style.opacity = '1';
+            productsGrid.style.pointerEvents = 'auto';
+            
+            // Ensure grid layout is maintained
+            productsGrid.style.display = 'grid';
+        });
+    }
+    
+    // Handle clear search when input is empty
+    searchInput.addEventListener('keyup', function(e) {
+        if (e.key === 'Escape' || (e.key === 'Backspace' && this.value === '')) {
+            performSearch('');
+        }
+    });
+});
+</script>
+
+{% endblock %}
