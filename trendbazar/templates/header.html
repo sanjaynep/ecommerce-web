@@ -26,18 +26,56 @@
                 </ul>
             </nav>
         </div>
+
+        {% if not user.is_authenticated %}
+
         <div class="header-actions">
+           
+            <div class="user-actions">
+                <a href="{% url 'login' %}">
+                <button class="login-btn">
+                    <i class="fas fa-user"></i>
+                   <span>Login</span>
+                </button>
+                </a>
+            </div>
+            <div class="user-actions">
+                <a href="{% url 'register' %}">
+                <button class="login-btn">
+                    <i class="fas fa-user"></i>
+                    <span>register</span>
+                </a>
+                </button>
+            </div>
+
+        {% else %}
+
             <div class="cart-container">
                 <button class="cart-btn" id="cartBtn">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count" id="cartCount">0</span>
                 </button>
             </div>
-            <div class="user-actions">
+
+           <div class="user-actions">
+                <a href="{% url 'password_reset' %}">
                 <button class="login-btn">
                     <i class="fas fa-user"></i>
-                    <span>Login</span>
+                   <span>change pass</span>
                 </button>
+                </a>
             </div>
+            <div class="user-actions">
+                <form action="{% url 'logout' %}" method="post" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="login-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </button>
+                </form>
+            </div>
+
+        {% endif %}
+
         </div>
     </div>
