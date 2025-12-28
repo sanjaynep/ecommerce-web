@@ -15,6 +15,7 @@ Welcome to the Django Ecommerce Project! This project is an evolving online shop
 - **Responsive Design:** Works seamlessly on desktop and mobile devices.
 - **Coming Soon:** 
   - **User Authentication & Login** (planned)
+  - Edited: user authentication has been successfully integrated with open source authentication with google 0auth
   - **Secure Payments Integration** (planned)
 
 ---
@@ -24,7 +25,7 @@ Welcome to the Django Ecommerce Project! This project is an evolving online shop
 - **Backend:** Django (Python)
 - **Frontend:** HTML, CSS, JavaScript
 - **Database:** SQLite (default, can be changed to PostgreSQL/MySQL)
-- **Authentication & Payments:** *To be added soon!*
+- **Authentication 
 
 ---
 
