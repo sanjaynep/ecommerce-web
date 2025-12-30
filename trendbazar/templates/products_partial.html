@@ -13,11 +13,18 @@
         <h3 class="product-name">{{ product.title }}</h3>
         <p class="product-description">{{ product.description|truncatewords:15 }}</p>
         <div class="product-price">${{ product.price }}</div>
+
+        {% if user.is_authenticated %}
         <button class="add-to-cart-btn" data-product-id="{{ product.id }}"
             data-product-name="{{ product.title }}" data-product-price="{{ product.price }}"
             data-product-image="{% if product.image %}{{ product.image.url }}{% endif %}">
             <i class="fas fa-shopping-cart"></i> Add to Cart
         </button>
+        {% else %}
+        <a href="{% url 'login' %}?next={{ request.path }}" class="login-to-cart-btn">
+            <i class="fas fa-sign-in-alt"></i> Login to Add to Cart
+        </a>
+        {% endif %}
     </div>
 </div>
 {% empty %}
