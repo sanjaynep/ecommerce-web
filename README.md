@@ -26,7 +26,7 @@ Welcome to the Django Ecommerce Project! This project is an evolving online shop
 - **Backend:** Django (Python)
 - **Frontend:** HTML, CSS, JavaScript
 - **Database:** SQLite (default, can be changed to PostgreSQL/MySQL)
-- **Authentication & Payments:** *To be added soon!*
+- **Authentication 
 
 ---
 
